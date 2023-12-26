@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mandarin : MonoBehaviour
+public class Silver_Cutlassfish : MonoBehaviour
 {
     public float speed;
 
@@ -22,7 +22,7 @@ public class Mandarin : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
 
-            Destroy(gameObject);
+
         }
     }
 }

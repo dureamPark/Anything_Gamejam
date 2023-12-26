@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mandarin : MonoBehaviour
+public class Dekopon : MonoBehaviour
 {
     public float speed;
 
