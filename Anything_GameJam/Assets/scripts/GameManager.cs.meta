@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Anything_GameJam/Assets/scripts/GameManager.cs.meta
 guid: 3d03618aeed921649a1bdb26eb9f7fc5
+=======
+guid: 9e5d9771e0545b44095a3b552662ad49
+>>>>>>> parent of cfd9c5f (UI):Anything_GameJam/Assets/scripts/UI/CoolTime.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
