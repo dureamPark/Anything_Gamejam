@@ -1,88 +1,141 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy_Status : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private Animator animator;
 
-    [SerializeField] int E_HP;
-    [SerializeField] int E_AD;
-    [SerializeField] float E_Speed;
+    [SerializeField] private int E_HP;
+    [SerializeField] private int E_AD;
+    [SerializeField] private float E_Speed;
+    [SerializeField] private float attackCooldown;
 
-    bool Damaged = false;
-    bool Slow = false;
-    bool Stop = false;
+    private bool isDamaged = false;
+    private bool Slow = false;
+    private bool Stop = false;
+    private bool CanAttack = false;
+    private float attackTimer = 0f; 
 
-    void Start()
+    private void Start()
     {
+        animator = gameObject.GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void Update()
     {
+        DIE();
+        AnimationUpdate();
         if (!Stop)
         {
             MOVE();
         }
         else
         {
-            STOP();
+            E_Speed = 0f;
+            if (CanAttack)
+            {
+                AttackControl();
+            }
         }
 
-        if (Slow)
+        if (attackTimer > 0)
         {
-            SLOW();
+            attackTimer -= Time.deltaTime;
         }
-
-        DIE();
     }
 
-    void MOVE()
+    void AnimationUpdate()
+    {
+        if (Stop)
+        {
+            animator.SetBool("isWalk", false);
+            animator.SetBool("isAttack", true);
+        }
+        else
+        {
+            animator.SetBool("isAttack", false);
+            animator.SetBool("isWalk", true);
+        }
+    }
+    private void MOVE()
     {
         Vector3 moveDirection = Vector3.right * E_Speed * Time.deltaTime;
         transform.position += moveDirection;
     }
 
-    void SLOW()
+    private IEnumerator SLOW()
     {
-        if (Slow)
+        E_Speed *= 0.5f;
+        yield return new WaitForSeconds(3f);
+        E_Speed *= 2f;
+        Slow = false;
+    }
+
+    private void AttackControl()
+    {
+        if (attackTimer <= 0)
         {
-            E_Speed *= 0.5f;
-        }
-        else
-        {
-            E_Speed *= 2f;
+            ATTACK();
+            attackTimer = attackCooldown;
         }
     }
 
-    void STOP()
-    {
-        E_Speed = 0f;
-        Debug.Log("Stopped");
-        ATTACK();
-    }
-
-    void ATTACK()
+    private void ATTACK()
     {
         Debug.Log("Attacking");
     }
 
-    void DIE()
+    private void DAMAGE(int HitDamaged)
+    {
+        if (isDamaged)
+        {
+            E_HP -= HitDamaged;
+            isDamaged = false;
+        }
+    }
+
+    private void DIE()
     {
         if (E_HP <= 0)
         {
             Destroy(gameObject);
-            //Wm.manger instance.monster수 --;
+            // Wm.manager instance.monster수--;
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Wall")
         {
-            Debug.Log("감지");
             Stop = true;
+            CanAttack = true;
+        }
+
+        if (collision.gameObject.tag == "Mandarin")
+        {
+            isDamaged = true;
+            DAMAGE(1);
+        }
+        if (collision.gameObject.tag == "Hanra")
+        {
+            isDamaged = true;
+            DAMAGE(2);
+        }
+        if (collision.gameObject.tag == "Silver")
+        {
+            isDamaged = true;
+            DAMAGE(3);
+        }
+
+        if (collision.gameObject.tag == "Dol")
+        {
+            if (!Slow)
+            {
+                Slow = true;
+                StartCoroutine(SLOW());
+            }
         }
     }
 }
