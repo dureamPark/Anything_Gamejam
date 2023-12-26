@@ -10,6 +10,7 @@ TagManager:
   - Silver
   - Dol
   - Enemy
+  - moai
   layers:
   - Default
   - TransparentFX
