@@ -16,8 +16,17 @@ public class UpgradeWeapon : MonoBehaviour
     public int Silver_Upgrade_count = 0;
     public int Harbang_Upgrade_count = 0;
 
+    public int Mandarin_Price = 200;
+    public int Dekopon_Price = 400;
+    public int Silver_Price = 1000;
+    public int Harbang_Price = 3000;
+
     private void Start()
     {
+        Mandarin_Price = 200;
+        Dekopon_Price = 400;
+        Silver_Price = 1000;
+        Harbang_Price = 3000;
         if (Instance == null)
         {
             Instance = this;
@@ -56,6 +65,7 @@ public class UpgradeWeapon : MonoBehaviour
             AM.Mandarin_Damage += 1;
             Mandarin_Upgrade_count++;
         }
+        Mandarin_Price = 200 + (Mandarin_Upgrade_count * 50);
     }
     public void dekopon_upgrade()
     {
@@ -66,25 +76,20 @@ public class UpgradeWeapon : MonoBehaviour
             AM.Dekopon_Damage += 5;
             Dekopon_Upgrade_count++;
         }
+        Dekopon_Price = 400 + (Dekopon_Upgrade_count * 50);
     }
     public void dolhareubang_upgrade()
     {
         Debug.Log("돌하르방(특수스킬 해금) 업그레이드");
-        if(Harbang_Upgrade_count == 2)
+        if(Harbang_Upgrade_count < 2)
         {
-            if (GM.Money >= 5000)
+            if (GM.Money >= (3000 + (Harbang_Upgrade_count * 2000)))
             {
-                GM.Money -= 5000;
-                Harbang_Upgrade_count++;
-            }
-        }else if(Harbang_Upgrade_count == 1)
-        {
-            if (GM.Money >= 3000)
-            {
-                GM.Money -= 3000;
+                GM.Money -= 3000 + (Harbang_Upgrade_count * 2000);
                 Harbang_Upgrade_count++;
             }
         }
+        Harbang_Price = 3000 + (Harbang_Upgrade_count * 2000);
     }
     public void sliverfish_upgrade()
     {
@@ -95,5 +100,6 @@ public class UpgradeWeapon : MonoBehaviour
             AM.Silver_cutlassfish_damage += 10;
             Silver_Upgrade_count++;
         }
+        Silver_Price = 1000 + (Silver_Upgrade_count * 500);
     }
 }

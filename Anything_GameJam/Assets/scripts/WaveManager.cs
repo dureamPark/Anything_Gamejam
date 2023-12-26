@@ -79,7 +79,7 @@ public class WaveManager : MonoBehaviour
         GM.Wave++;
         Josuck_Start();
         Invoke("Josuck_End", 3.6f);
-        if (GM.Wave >= 10)
+        if (GM.Wave > 10)
         {
             TransitionToHappyScene();
         }
