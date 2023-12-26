@@ -135,7 +135,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3422033492265853988}
+      - m_Target: {fileID: 3010851214078094710}
         m_TargetAssemblyTypeName: NewBehaviourScript, Assembly-CSharp
         m_MethodName: HideButtonSetting
         m_Mode: 3
@@ -919,7 +919,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3422033492265853988}
+      - m_Target: {fileID: 3010851214078094710}
         m_TargetAssemblyTypeName: NewBehaviourScript, Assembly-CSharp
         m_MethodName: HideButtonSetting
         m_Mode: 3
@@ -1581,7 +1581,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3422033492265853988}
+      - m_Target: {fileID: 3010851214078094710}
         m_TargetAssemblyTypeName: NewBehaviourScript, Assembly-CSharp
         m_MethodName: HideButtonSetting
         m_Mode: 3
@@ -1824,7 +1824,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1346135091029685641}
-  - component: {fileID: 3422033492265853988}
+  - component: {fileID: 3010851214078094710}
   m_Layer: 5
   m_Name: CoolTime
   m_TagString: Untagged
@@ -1855,7 +1855,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3422033492265853988
+--- !u!114 &3010851214078094710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1864,7 +1864,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5979006857258801096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3341f8ca9e70414e83be08c3e855965, type: 3}
+  m_Script: {fileID: 11500000, guid: 66b7449bc2ec3904ca910d8406bc3bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hideButtons:
@@ -2619,7 +2619,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3422033492265853988}
+      - m_Target: {fileID: 3010851214078094710}
         m_TargetAssemblyTypeName: NewBehaviourScript, Assembly-CSharp
         m_MethodName: HideButtonSetting
         m_Mode: 3
