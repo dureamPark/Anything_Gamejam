@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     private void LateUpdate()
     {
         HP_Gauge.value = Player_HP / Max_Player_HP;
-        Money_text.text = Money.ToString();
+        Money_text.text = "Money : " + Money.ToString();
 
     }
 }

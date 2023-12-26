@@ -6,6 +6,8 @@ public class AttackManager : MonoBehaviour
 {
     public static AttackManager Instance;
 
+    public GameManager GM;
+
 
     public int Mandarin_Damage;
     public int Dekopon_Damage;
@@ -112,6 +114,7 @@ public class AttackManager : MonoBehaviour
     {
         if (Dekopon_Active)
         {
+            GM.Money -= 5;
             Debug.Log("한라봉");
             Dekopon_CoolTime = 2.0f;
             Dekopon_Active = false;
@@ -124,6 +127,7 @@ public class AttackManager : MonoBehaviour
         if (Silver_cutlassfish_Active)
         {
             Debug.Log("은갈치");
+            GM.Money -= 50;
             Silver_cutlassfish_CoolTime = 5.0f;
             Silver_cutlassfish_Active = false;
         }
@@ -135,6 +139,7 @@ public class AttackManager : MonoBehaviour
         if (Dolhareubang_Active)
         {
             Debug.Log("돌하르방");
+            GM.Money -= 30;
             Dolhareubang_CoolTime = 10.0f;
             Dolhareubang_Active = false;
         }

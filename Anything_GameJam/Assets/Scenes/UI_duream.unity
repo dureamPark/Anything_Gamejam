@@ -1391,6 +1391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d9a3415f5c93443be3007784adf41a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GM: {fileID: 1642557983}
   Mandarin_Damage: 0
   Dekopon_Damage: 0
   Silver_cutlassfish_damage: 0
