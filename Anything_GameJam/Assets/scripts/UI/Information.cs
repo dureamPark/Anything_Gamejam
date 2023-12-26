@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Title : MonoBehaviour
+public class Information : MonoBehaviour
 {
     void Update()
     {
@@ -15,8 +15,8 @@ public class Title : MonoBehaviour
 
     void TransitionToNextScene()
     {
-        
-        SceneManager.LoadScene("Information");
-       
+
+        SceneManager.LoadScene("attack_test 1");
+
     }
 }
