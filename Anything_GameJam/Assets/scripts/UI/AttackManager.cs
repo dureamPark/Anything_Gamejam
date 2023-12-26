@@ -6,8 +6,11 @@ public class AttackManager : MonoBehaviour
 {
     public static AttackManager Instance;
 
+<<<<<<< HEAD
     public GameManager GM;
 
+=======
+>>>>>>> parent of cfd9c5f (UI)
 
     public int Mandarin_Damage;
     public int Dekopon_Damage;
@@ -44,14 +47,22 @@ public class AttackManager : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
     
     void Update()
     {
         if(Mandarin_Cooltime >= 0)
+=======
+
+    void Update()
+    {
+        if (Mandarin_Cooltime >= 0)
+>>>>>>> parent of cfd9c5f (UI)
         {
             Mandarin_Cooltime -= Time.deltaTime;
         }
 
+<<<<<<< HEAD
         if(Dekopon_CoolTime >= 0)
         {
             Dekopon_CoolTime -= Time.deltaTime;
@@ -61,6 +72,17 @@ public class AttackManager : MonoBehaviour
             Silver_cutlassfish_CoolTime -= Time.deltaTime;
         }
         if(Dolhareubang_CoolTime >= 0)
+=======
+        if (Dekopon_CoolTime >= 0)
+        {
+            Dekopon_CoolTime -= Time.deltaTime;
+        }
+        if (Silver_cutlassfish_CoolTime >= 0)
+        {
+            Silver_cutlassfish_CoolTime -= Time.deltaTime;
+        }
+        if (Dolhareubang_CoolTime >= 0)
+>>>>>>> parent of cfd9c5f (UI)
         {
             Dolhareubang_CoolTime -= Time.deltaTime;
         }
@@ -76,7 +98,11 @@ public class AttackManager : MonoBehaviour
 
         if (!Dekopon_Active)
         {
+<<<<<<< HEAD
             if(Dekopon_CoolTime <= 0)
+=======
+            if (Dekopon_CoolTime <= 0)
+>>>>>>> parent of cfd9c5f (UI)
             {
                 Dekopon_Active = true;
             }
@@ -103,7 +129,10 @@ public class AttackManager : MonoBehaviour
     {
         if (Mandarin_Active)
         {
+<<<<<<< HEAD
             Debug.Log("귤");
+=======
+>>>>>>> parent of cfd9c5f (UI)
             Mandarin_Cooltime = 0.3f;
             Mandarin_Active = false;
         }
@@ -114,8 +143,11 @@ public class AttackManager : MonoBehaviour
     {
         if (Dekopon_Active)
         {
+<<<<<<< HEAD
             GM.Money -= 5;
             Debug.Log("한라봉");
+=======
+>>>>>>> parent of cfd9c5f (UI)
             Dekopon_CoolTime = 2.0f;
             Dekopon_Active = false;
         }
@@ -126,8 +158,11 @@ public class AttackManager : MonoBehaviour
     {
         if (Silver_cutlassfish_Active)
         {
+<<<<<<< HEAD
             Debug.Log("은갈치");
             GM.Money -= 50;
+=======
+>>>>>>> parent of cfd9c5f (UI)
             Silver_cutlassfish_CoolTime = 5.0f;
             Silver_cutlassfish_Active = false;
         }
@@ -138,8 +173,11 @@ public class AttackManager : MonoBehaviour
     {
         if (Dolhareubang_Active)
         {
+<<<<<<< HEAD
             Debug.Log("돌하르방");
             GM.Money -= 30;
+=======
+>>>>>>> parent of cfd9c5f (UI)
             Dolhareubang_CoolTime = 10.0f;
             Dolhareubang_Active = false;
         }

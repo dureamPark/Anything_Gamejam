@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Anything_GameJam/Assets/UI_Prefab.meta
+guid: f2ba955dcdcfb0c46a3d761174e959eb
+========
 guid: bd3f792dc69715f429b40ce78e1484db
+>>>>>>>> parent of cfd9c5f (UI):Anything_GameJam/Assets/scripts/UI.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
