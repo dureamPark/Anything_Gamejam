@@ -14,6 +14,13 @@ public class AttackManager : MonoBehaviour
     public GameObject Dolharbang;
     public GameObject Silver_culassfish;
 
+    public Audio_play M_A;
+    public Audio_play D_A;
+    public Audio_play S_A;
+    public Audio_play DH_A;
+
+    public Harbang harbang;
+
 
 
     public int Mandarin_Damage;
@@ -132,7 +139,7 @@ public class AttackManager : MonoBehaviour
 
             Debug.Log("귤");
 
-
+            M_A.Au_Play();
             Mandarin_Cooltime = 0.3f;
             Mandarin_Active = false;
             GameObject shoot_Mandarin = Instantiate(Mandarin);
@@ -149,6 +156,7 @@ public class AttackManager : MonoBehaviour
             GM.Money -= 5;
             Debug.Log("한라봉");
 
+            D_A.Au_Play();
             Dekopon_CoolTime = 2.0f;
             Dekopon_Active = false;
             GameObject shoot_Dekopon = Instantiate(Dekopon);
@@ -165,6 +173,7 @@ public class AttackManager : MonoBehaviour
             Debug.Log("은갈치");
             GM.Money -= 50;
 
+            S_A.Au_Play();
             Silver_cutlassfish_CoolTime = 5.0f;
             Silver_cutlassfish_Active = false;
             GameObject shoot_Silver = Instantiate(Silver_culassfish);
@@ -181,9 +190,23 @@ public class AttackManager : MonoBehaviour
             Debug.Log("돌하르방");
             GM.Money -= 30;
 
-            Dolhareubang_CoolTime = 10.0f;
+            Invoke("Harbang_Audio_play", 6.5f);
+            Dolhareubang_CoolTime = 45.0f;
+            harbang.isRising = true;
+            Dolharbang.SetActive(true);
             Dolhareubang_Active = false;
+            Invoke("Harbang_Deactive", 30.0f);
         }
         // 돌하르방 스킬
+    }
+
+    public void Harbang_Deactive()
+    {
+        Dolharbang.SetActive(false);
+    }
+
+    public void Harbang_Audio_play()
+    {
+        DH_A.Au_Play();
     }
 }

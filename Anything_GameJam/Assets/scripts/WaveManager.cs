@@ -11,6 +11,9 @@ public class WaveManager : MonoBehaviour
     public floor FL;
     public bool Waving;
 
+    public Audio_play mil;
+    public Audio_play Ssul;
+
     public float Wave_Cooltime;
     public float Wave_time = 40;
 
@@ -77,6 +80,7 @@ public class WaveManager : MonoBehaviour
     {
         FL.Start_josuck();
         Josuk.SetActive(true);
+        mil.Au_Play();
         Vector3 newPosition = player_space.transform.position + new Vector3(0 , 0.25f , 0);
         player_space.transform.position = newPosition;
 
@@ -86,7 +90,7 @@ public class WaveManager : MonoBehaviour
     {
         FL.End_josuck();
         Josuk.SetActive(false);
-
+        Ssul.Au_Play();
         Vector3 originalPosition = new Vector3(5.9f, -0.25f, 0);
         player_space.transform.position = originalPosition;
     }

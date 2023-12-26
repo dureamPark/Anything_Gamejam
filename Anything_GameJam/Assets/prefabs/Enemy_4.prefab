@@ -207,13 +207,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dde5565d90a98814db9f28f085f65451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AM: {fileID: 0}
-  GM: {fileID: 0}
   E_HP: 120
   E_AD: 40
   E_Speed: 1
   attackCooldown: 3
-  Drop_money: 40
+  Drop_Money: 50
 --- !u!61 &1257402629876874546
 BoxCollider2D:
   m_ObjectHideFlags: 0

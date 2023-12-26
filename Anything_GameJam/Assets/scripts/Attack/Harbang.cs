@@ -6,7 +6,7 @@ public class Harbang : MonoBehaviour
     public GameObject song;
     public Transform targetPosition;
 
-    private bool isRising = true;
+    public bool isRising = false;
     private float riseSpeed = 1.0f;
 
     void Start()

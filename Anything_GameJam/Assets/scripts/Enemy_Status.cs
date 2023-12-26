@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Enemy_Status : MonoBehaviour
 {
+    public GameManager GM;
+    public AttackManager AM;
     private WaveManager waveManager;
     private Rigidbody2D rb;
     private Animator animator;
@@ -18,10 +20,13 @@ public class Enemy_Status : MonoBehaviour
     private bool Slow = false;
     private bool Stop = false;
     private bool CanAttack = false;
-    private float attackTimer = 0f; 
+    private float attackTimer = 0f;
+    public int Drop_Money;
 
     private void Start()
     {
+        AM = FindObjectOfType<AttackManager>();
+        GM = FindObjectOfType<GameManager>();
         effect = transform.GetChild(0).gameObject;
         animator_effect = effect.GetComponent<Animator>();
         animator = gameObject.GetComponent<Animator>();
@@ -105,6 +110,7 @@ public class Enemy_Status : MonoBehaviour
     {
         if (E_HP <= 0)
         {
+            GM.Money += Drop_Money;
             Destroy(gameObject);
         }
     }
@@ -122,19 +128,19 @@ public class Enemy_Status : MonoBehaviour
             Debug.Log("±Ö¿¡ ¸Â´Ù");
             animator_effect.SetTrigger("isOr");
             isDamaged = true;
-            DAMAGE(1);
+            DAMAGE(AM.Mandarin_Damage);
         }
         if (collision.gameObject.tag == "Hanra")
         {
             animator_effect.SetTrigger("isHa");
             isDamaged = true;
-            DAMAGE(2);
+            DAMAGE(AM.Dekopon_Damage);
         }
         if (collision.gameObject.tag == "Silver")
         {
             animator_effect.SetTrigger("isGa");
             isDamaged = true;
-            DAMAGE(3);
+            DAMAGE(AM.Silver_cutlassfish_damage);
         }
 
         if (collision.gameObject.tag == "Dol")
