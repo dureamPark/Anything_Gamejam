@@ -12,9 +12,11 @@ public class GameManager : MonoBehaviour
     public float Max_Player_HP;
     public int Wave;
     public int Money;
-
+    
     public Slider HP_Gauge;
     public Text Money_text;
+    public GameObject UU;
+    bool UU_Active;
 
     //public GameObjcet Upgrade_UI;
     //bool Upgrade_UI_Active;
@@ -27,6 +29,9 @@ public class GameManager : MonoBehaviour
         Wave = 1;
         Money = 1000;
         HP_Gauge.value = Player_HP / Max_Player_HP;
+        UU_Active = false;
+
+        UU.SetActive(UU_Active);
 
         if (Instance == null)
         {
@@ -51,7 +56,8 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.U))
         {
-            //SetActive(true);
+            UU_Active = !UU_Active;
+            UU.SetActive(UU_Active);
         }
     }
 

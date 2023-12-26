@@ -6,11 +6,16 @@ public class WaveManager : MonoBehaviour
 {
     public static WaveManager Instance;
     public GameManager GM;
+    public GameObject Josuk;
+    public GameObject player_space;
+    public floor FL;
     public bool Waving;
-    public int Enemy_Num;
-    public int EnemyA_N;
-    public int EnemyB_N;
-    public int EnemyC_N;
+
+    public Audio_play mil;
+    public Audio_play Ssul;
+
+    public float Wave_Cooltime;
+    public float Wave_time = 40;
 
     void Start()
     {
@@ -21,6 +26,7 @@ public class WaveManager : MonoBehaviour
         else
         {
             Destroy(this.gameObject);
+            return;
         }
 
         Waving = false;
@@ -29,98 +35,64 @@ public class WaveManager : MonoBehaviour
     
     void Update()
     {
-        if (!Waving)
+        // 웨이브 시작
+        if(Wave_Cooltime <= 0 && !Waving)
         {
             WaveStart();
         }
-        if (Enemy_Num <= 0)
+
+        // 웨이브 중
+        if(Waving)
+        {
+            Wave_time -= Time.deltaTime;
+        }
+
+        // 웨이브 끝
+        if(Waving && Wave_time <= 0) 
         {
             WaveEnd();
+        }
+
+        // 대기 시작
+        if(!Waving && Wave_Cooltime > 0)
+        {
+            Wave_Cooltime -= Time.deltaTime;
         }
     }
 
     public void WaveStart()
     {
         Waving = true;
-        EnemyGenerate();
+        Wave_time = 40;
     }
 
     public void WaveEnd()
     {
         Waving = false;
+        Wave_Cooltime = 5;
         GM.Money += 500 * GM.Wave;
         GM.Wave++;
+        Josuck_Start();
+        Invoke("Josuck_End", 3.6f);
     }
-    public void EnemyGenerate()
+
+    public void Josuck_Start()
     {
-        if(GM.Wave == 1)
-        {
-            Enemy_Num = 3;
-            EnemyA_N = 1;
-            EnemyB_N = 1;
-            EnemyC_N = 1;
-        }else if(GM.Wave == 2)
-        {
-            Enemy_Num = 3;
-            EnemyA_N = 1;
-            EnemyB_N = 1;
-            EnemyC_N = 1;
-        }
-        else if(GM.Wave == 3)
-        {
-            Enemy_Num = 3;
-            EnemyA_N = 1;
-            EnemyB_N = 1;
-            EnemyC_N = 1;
-        }
-        else if(GM.Wave == 4)
-        {
-            Enemy_Num = 3;
-            EnemyA_N = 1;
-            EnemyB_N = 1;
-            EnemyC_N = 1;
-        }
-        else if(GM.Wave == 5)
-        {
-            Enemy_Num = 3;
-            EnemyA_N = 1;
-            EnemyB_N = 1;
-            EnemyC_N = 1;
-        }
-        else if(GM.Wave == 6)
-        {
-            Enemy_Num = 3;
-            EnemyA_N = 1;
-            EnemyB_N = 1;
-            EnemyC_N = 1;
-        }
-        else if(GM.Wave == 7)
-        {
-            Enemy_Num = 3;
-            EnemyA_N = 1;
-            EnemyB_N = 1;
-            EnemyC_N = 1;
-        }
-        else if(GM.Wave == 8)
-        {
-            Enemy_Num = 3;
-            EnemyA_N = 1;
-            EnemyB_N = 1;
-            EnemyC_N = 1;
-        }
-        else if(GM.Wave == 9)
-        {
-            Enemy_Num = 3;
-            EnemyA_N = 1;
-            EnemyB_N = 1;
-            EnemyC_N = 1;
-        }
-        else if(GM.Wave == 10)
-        {
-            Enemy_Num = 3;
-            EnemyA_N = 1;
-            EnemyB_N = 1;
-            EnemyC_N = 1;
-        }
+        FL.Start_josuck();
+        Josuk.SetActive(true);
+        mil.Au_Play();
+        Vector3 newPosition = player_space.transform.position + new Vector3(0 , 0.25f , 0);
+        player_space.transform.position = newPosition;
+
     }
+
+    public void Josuck_End()
+    {
+        FL.End_josuck();
+        Josuk.SetActive(false);
+        Ssul.Au_Play();
+        Vector3 originalPosition = new Vector3(5.9f, -0.25f, 0);
+        player_space.transform.position = originalPosition;
+    }
+    
 }
