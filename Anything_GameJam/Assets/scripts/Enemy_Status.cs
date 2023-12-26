@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Enemy_Status : MonoBehaviour
 {
+    private WaveManager waveManager;
     private Rigidbody2D rb;
     private Animator animator;
 
@@ -101,7 +102,8 @@ public class Enemy_Status : MonoBehaviour
         if (E_HP <= 0)
         {
             Destroy(gameObject);
-            // Wm.manager instance.monster수--;
+            //이렇게 사용하는게 아니면 wavemanager에서 관리필요
+            waveManager.Enemy_Num--;
         }
     }
 
