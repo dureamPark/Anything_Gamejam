@@ -9,9 +9,9 @@ public class CoolTime : MonoBehaviour
     public GameObject[] textPros;
     public TextMeshProUGUI[] hideTimeTexts;
     public Image[] hideButtonImages;
-    private float[] ButtonTimes = { 0.3f, 2.0f, 5.0f, 45.0f };
-    private float[] getButtonTimes = { 0, 0, 0, 0 };
-    private bool[] isCooldownActive = { false, false, false, false };
+    private float[] ButtonTimes = { 0.3f, 2.0f, 5.0f, 45.0f, 50.0f };
+    private float[] getButtonTimes = { 0, 0, 0, 0, 0 };
+    private bool[] isCooldownActive = { false, false, false, false, false };
 
     // Start is called before the first frame update
     void Start()
