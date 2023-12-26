@@ -117,6 +117,7 @@ public class Enemy_Status : MonoBehaviour
 
         if (collision.gameObject.tag == "Mandarin")
         {
+            Debug.Log("±Ö¿¡ ¸Â´Ù");
             isDamaged = true;
             DAMAGE(1);
         }
