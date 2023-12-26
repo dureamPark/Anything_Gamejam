@@ -25,6 +25,7 @@ public class Enemy_generator : MonoBehaviour
     void Start()
     {
         waveManager = FindObjectOfType<WaveManager>();
+        gameManager = FindObjectOfType<GameManager>();
         timeSinceLastSpawn = Random.Range(0.5f, 2f);
         spawnInterval = Random.Range(0.5f, 2.5f);
         spawnInterval_A = 3f;
@@ -58,22 +59,28 @@ public class Enemy_generator : MonoBehaviour
         WaveCount = gameManager.Wave;
         isWave = waveManager.Waving;
 
-        if(WaveCount == 2)
+        if(WaveCount <= 2)
         {
             spawnInterval_A = 2f;
-        }else if(WaveCount == 4)
+        }else if(WaveCount <= 4)
         {
             spawnInterval_B = 3f;
         }
-        else if(WaveCount == 6)
+        else if(WaveCount <= 6)
         {
             spawnInterval_A = 1.5f;
             spawnInterval_B = 2.5f;
             spawnInterval_C = 4f;
         }
-        else if(WaveCount == 8)
+        else if(WaveCount <= 8)
         {
             spawnInterval_D = 5f;
+        }else if(WaveCount == 9)
+        {
+            spawnInterval_A = 1.5f;
+            spawnInterval_B = 2.5f;
+            spawnInterval_C = 3.5f;
+            spawnInterval_D = 4.5f;
         }
 
     }

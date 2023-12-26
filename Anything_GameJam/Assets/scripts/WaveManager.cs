@@ -8,6 +8,9 @@ public class WaveManager : MonoBehaviour
     public GameManager GM;
     public bool Waving;
 
+    public float Wave_Cooltime;
+    public float Wave_time = 40;
+
     void Start()
     {
         if (Instance == null)
@@ -26,21 +29,41 @@ public class WaveManager : MonoBehaviour
     
     void Update()
     {
-        if (!Waving)
+        // 웨이브 시작
+        if(Wave_Cooltime <= 0 && !Waving)
         {
-
             WaveStart();
+        }
+
+        // 웨이브 중
+        if(Waving)
+        {
+            Wave_time -= Time.deltaTime;
+        }
+
+        // 웨이브 끝
+        if(Waving && Wave_time <= 0) 
+        {
+            WaveEnd();
+        }
+
+        // 대기 시작
+        if(!Waving && Wave_Cooltime > 0)
+        {
+            Wave_Cooltime -= Time.deltaTime;
         }
     }
 
     public void WaveStart()
     {
         Waving = true;
+        Wave_time = 40;
     }
 
     public void WaveEnd()
     {
         Waving = false;
+        Wave_Cooltime = 5;
         GM.Money += 500 * GM.Wave;
         GM.Wave++;
     }
