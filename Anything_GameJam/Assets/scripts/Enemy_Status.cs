@@ -6,6 +6,8 @@ public class Enemy_Status : MonoBehaviour
     private WaveManager waveManager;
     private Rigidbody2D rb;
     private Animator animator;
+    GameObject effect;
+    Animator animator_effect;
 
     [SerializeField] private int E_HP;
     [SerializeField] private int E_AD;
@@ -20,6 +22,8 @@ public class Enemy_Status : MonoBehaviour
 
     private void Start()
     {
+        effect = transform.GetChild(0).gameObject;
+        animator_effect = effect.GetComponent<Animator>();
         animator = gameObject.GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -116,16 +120,19 @@ public class Enemy_Status : MonoBehaviour
         if (collision.gameObject.tag == "Mandarin")
         {
             Debug.Log("±Ö¿¡ ¸Â´Ù");
+            animator_effect.SetTrigger("isOr");
             isDamaged = true;
             DAMAGE(1);
         }
         if (collision.gameObject.tag == "Hanra")
         {
+            animator_effect.SetTrigger("isHa");
             isDamaged = true;
             DAMAGE(2);
         }
         if (collision.gameObject.tag == "Silver")
         {
+            animator_effect.SetTrigger("isGa");
             isDamaged = true;
             DAMAGE(3);
         }
