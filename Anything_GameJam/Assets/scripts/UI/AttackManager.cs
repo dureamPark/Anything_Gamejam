@@ -22,6 +22,7 @@ public class AttackManager : MonoBehaviour
     public Audio_play S_A;
     public Audio_play DH_A;
     public Audio_play SH_A;
+    public Audio_play MA_A;
 
     public GameObject Skill5;
     public GameObject Skill6;
@@ -296,6 +297,7 @@ public class AttackManager : MonoBehaviour
             if (Moai_Active)
             {
                 Debug.Log("±Ö¸ð¾ÆÀÌ");
+                Invoke("Moai_Sound_play", 1.0f);
                 Moai_CoolTime = 50.0f;
                 moai.SetActive(true);
                 MI.isDown = true;
@@ -308,5 +310,10 @@ public class AttackManager : MonoBehaviour
     public void Moai_Deactive()
     {
         moai.SetActive(false);
+    }
+
+    public void Moai_Sound_play()
+    {
+        MA_A.Au_Play();
     }
 }
