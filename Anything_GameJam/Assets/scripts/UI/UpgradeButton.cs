@@ -35,7 +35,7 @@ public class UpgradeButton : MonoBehaviour
     }
     void bt1up()
     {
-        if (GM.Money <= 0)
+        if (GM.Money <= 99)
         {
             Debug.Log("돈이 부족합니다");
         }
@@ -51,7 +51,7 @@ public class UpgradeButton : MonoBehaviour
     }
     void bt2up()
     {
-        if (GM.Money <= 0)
+        if (GM.Money <= 199)
         {
             Debug.Log("돈이 부족합니다");
         }
@@ -67,15 +67,15 @@ public class UpgradeButton : MonoBehaviour
     }
     void bt3up()
     {
-        if (GM.Money <= 0)
+        if (GM.Money <= 299)
         {
             Debug.Log("돈이 부족합니다");
         }
         else
         {
             Debug.Log("돌하르방 업그레이드");
-            AM.Dolhareubang_damage += 1;
             GM.Money -= 300;
+            AM.Dolhareubang_damage += 1;
             Debug.Log("돌하르방 : " + AM.Dolhareubang_damage);
             Debug.Log("돈: " + GM.Money);
         }
@@ -83,17 +83,17 @@ public class UpgradeButton : MonoBehaviour
     }
     void bt4up()
     {
-        if (GM.Money <= 0)
+        if (GM.Money <= 499)
         {
             Debug.Log("돈이 부족합니다");
         }
         else
         {
             Debug.Log("은갈치 업그레이드");
-        AM.Silver_cutlassfish_damage += 1;
-        GM.Money -= 500;
-        Debug.Log("은갈치 : " + AM.Silver_cutlassfish_damage);
-        Debug.Log("돈: " + GM.Money);
+            AM.Silver_cutlassfish_damage += 1;
+            GM.Money -= 500;
+            Debug.Log("은갈치 : " + AM.Silver_cutlassfish_damage);
+            Debug.Log("돈: " + GM.Money);
         }
         
     }
