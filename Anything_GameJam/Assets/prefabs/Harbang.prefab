@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6228699231345225650}
   - component: {fileID: 174622207981539131}
   - component: {fileID: 4919384400218579977}
+  - component: {fileID: 3564282481953007622}
   m_Layer: 0
   m_Name: Harbang
   m_TagString: Untagged
@@ -107,6 +108,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3564282481953007622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852324858081263225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aba81c09c84e3f243b4462354fb0198b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  song: {fileID: 2811243769302947044}
+  targetPosition: {fileID: 0}
 --- !u!1 &2811243769302947044
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,9 +133,10 @@ GameObject:
   - component: {fileID: 3844698086079008656}
   - component: {fileID: 3620714746264919159}
   - component: {fileID: 1039887176344484485}
+  - component: {fileID: 8142982992296099511}
   m_Layer: 0
-  m_Name: Song_Attac
-  m_TagString: Untagged
+  m_Name: Song
+  m_TagString: Dol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -213,3 +229,48 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!61 &8142982992296099511
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811243769302947044}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.014791362, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.34958273, y: 0.32}
+  m_EdgeRadius: 0

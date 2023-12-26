@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class Enemy_Status : MonoBehaviour
 {
-    public AttackManager AM;
-    public GameManager GM;
     private WaveManager waveManager;
     private Rigidbody2D rb;
     private Animator animator;
+    GameObject effect;
+    Animator animator_effect;
 
     [SerializeField] private int E_HP;
     [SerializeField] private int E_AD;
@@ -18,14 +18,12 @@ public class Enemy_Status : MonoBehaviour
     private bool Slow = false;
     private bool Stop = false;
     private bool CanAttack = false;
-    private float attackTimer = 0f;
-
-    public int Drop_money;
+    private float attackTimer = 0f; 
 
     private void Start()
     {
-        AM = FindAnyObjectByType<AttackManager>();
-        GM = FindAnyObjectByType<GameManager>();
+        effect = transform.GetChild(0).gameObject;
+        animator_effect = effect.GetComponent<Animator>();
         animator = gameObject.GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -92,7 +90,6 @@ public class Enemy_Status : MonoBehaviour
     private void ATTACK()
     {
         Debug.Log("Attacking");
-        GM.Player_HP -= E_AD;
     }
 
     private void DAMAGE(int HitDamaged)
@@ -108,7 +105,6 @@ public class Enemy_Status : MonoBehaviour
     {
         if (E_HP <= 0)
         {
-            GM.Money += Drop_money;
             Destroy(gameObject);
         }
     }
@@ -124,18 +120,21 @@ public class Enemy_Status : MonoBehaviour
         if (collision.gameObject.tag == "Mandarin")
         {
             Debug.Log("±Ö¿¡ ¸Â´Ù");
+            animator_effect.SetTrigger("isOr");
             isDamaged = true;
-            DAMAGE(AM.Mandarin_Damage);
+            DAMAGE(1);
         }
         if (collision.gameObject.tag == "Hanra")
         {
+            animator_effect.SetTrigger("isHa");
             isDamaged = true;
-            DAMAGE(AM.Dekopon_Damage);
+            DAMAGE(2);
         }
         if (collision.gameObject.tag == "Silver")
         {
+            animator_effect.SetTrigger("isGa");
             isDamaged = true;
-            DAMAGE(AM.Silver_cutlassfish_damage);
+            DAMAGE(3);
         }
 
         if (collision.gameObject.tag == "Dol")

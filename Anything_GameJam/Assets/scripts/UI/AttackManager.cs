@@ -26,7 +26,7 @@ public class AttackManager : MonoBehaviour
     public float Silver_cutlassfish_CoolTime;
     public bool Mandarin_Active;
     public bool Dekopon_Active;
-    public bool Dolhareubang_Active;
+    public static bool Dolhareubang_Active;
     public bool Silver_cutlassfish_Active;
 
 
