@@ -46,7 +46,7 @@ public class CoolTime : MonoBehaviour
         {
             if (getButtonTimes[i] > 0)
             {
-                getButtonTimes[i] -= Time.deltaTime;
+                //getButtonTimes[i] -= Time.deltaTime;
 
                 if (getButtonTimes[i] < 0)
                 {
@@ -68,7 +68,7 @@ public class CoolTime : MonoBehaviour
         {
             yield return null;
 
-            //getButtonTimes[weaponNum] -= Time.deltaTime;
+            getButtonTimes[weaponNum] -= Time.deltaTime;
 
             if (getButtonTimes[weaponNum] < 0)
             {

@@ -115,16 +115,6 @@ public class AttackManager : MonoBehaviour
             Silver_cutlassfish_CoolTime -= Time.deltaTime;
         }
 
-        if (Dekopon_CoolTime >= 0)
-        {
-            Dekopon_CoolTime -= Time.deltaTime;
-        }
-
-        if (Silver_cutlassfish_CoolTime >= 0)
-        {
-            Silver_cutlassfish_CoolTime -= Time.deltaTime;
-        }
-
         if (Dolhareubang_CoolTime >= 0)
         {
             Dolhareubang_CoolTime -= Time.deltaTime;
