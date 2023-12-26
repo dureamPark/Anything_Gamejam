@@ -42,8 +42,8 @@ public class WaveManager : MonoBehaviour
 
     public void WaveStart()
     {
-        Waving = true;
         EnemyGenerate();
+        Waving = true;
     }
 
     public void WaveEnd()
@@ -100,5 +100,6 @@ public class WaveManager : MonoBehaviour
             Enemy_Num = 11;
 
         }
+        
     }
 }
