@@ -20,6 +20,8 @@ public class AttackManager : MonoBehaviour
     public Audio_play S_A;
     public Audio_play DH_A;
 
+    public GameObject Skill5;
+
     public Harbang harbang;
 
 
@@ -46,6 +48,7 @@ public class AttackManager : MonoBehaviour
 
     void Start()
     {
+        Skill5.SetActive(false);
         Mandarin_Damage = 1;
         Dekopon_Damage = 30;
         Silver_cutlassfish_damage = 80;
@@ -54,7 +57,7 @@ public class AttackManager : MonoBehaviour
         Dekopon_Active = true;
         Dolhareubang_Active = true;
         Silver_cutlassfish_Active = true;
-
+        UW = FindObjectOfType<UpgradeWeapon>();
         if (Instance == null)
         {
             Instance = this;
@@ -70,6 +73,11 @@ public class AttackManager : MonoBehaviour
 
     void Update()
     {
+        if (UW.Skill5_Unlock)
+        {
+            Skill5.SetActive(true);
+        }
+
         if(Mandarin_Cooltime >= 0)
         {
             Mandarin_Cooltime -= Time.deltaTime;

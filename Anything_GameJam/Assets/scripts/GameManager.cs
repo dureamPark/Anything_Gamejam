@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         Player_HP = 100;
         Max_Player_HP = 100;
         Wave = 1;
-        Money = 1000;
+        Money = 100000;
         HP_Gauge.value = Player_HP / Max_Player_HP;
         UU_Active = false;
 

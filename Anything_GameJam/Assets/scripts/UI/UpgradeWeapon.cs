@@ -8,7 +8,6 @@ public class UpgradeWeapon : MonoBehaviour
     public AttackManager AM;
     public GameManager GM;
 
-    public GameObject Skill5;
     public bool Skill5_Unlock = false;
 
     public int Mandarin_Upgrade_count = 0;
@@ -18,7 +17,6 @@ public class UpgradeWeapon : MonoBehaviour
 
     private void Start()
     {
-        Skill5.SetActive(Skill5_Unlock);   
         if (Instance == null)
         {
             Instance = this;
@@ -38,7 +36,6 @@ public class UpgradeWeapon : MonoBehaviour
                 if (Harbang_Upgrade_count >= 5)
                 {
                     Skill5_Unlock = true;
-                    Skill5.SetActive(Skill5_Unlock);
                 }
             }
         }
