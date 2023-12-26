@@ -14,6 +14,8 @@ public class Enemy_generator : MonoBehaviour
 
     bool isWave; //웨이브 on
     int E_Num; //e_num으로 적 수확인
+    int generated_E;
+    bool generated;
     bool mob_A;
     bool mob_b;
     bool mob_c;
@@ -23,7 +25,8 @@ public class Enemy_generator : MonoBehaviour
 
     void Start()
     {
-        waveManager = GetComponent<WaveManager>();
+        generated = true;
+        waveManager = FindObjectOfType<WaveManager>();
         timeSinceLastSpawn = 0f; 
     }
 
@@ -37,7 +40,13 @@ public class Enemy_generator : MonoBehaviour
             if (timeSinceLastSpawn >= spawnInterval)
             {
                 GenerateMonsters();
+                generated_E--;
+                if(generated_E == 0)
+                {
+                    isWave = false;
+                }
                 timeSinceLastSpawn = 0f;
+
             }
         }
     }
@@ -45,6 +54,11 @@ public class Enemy_generator : MonoBehaviour
     void UpdateStatus()
     {
         isWave = waveManager.Waving;
+        if (generated)
+        {
+            generated_E = waveManager.Enemy_Num;
+            generated = !generated;
+        }
         E_Num = waveManager.Enemy_Num;
         mob_A = waveManager.EnemyA_N;
         mob_b = waveManager.EnemyB_N;
