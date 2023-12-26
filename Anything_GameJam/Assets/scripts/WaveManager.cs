@@ -68,13 +68,13 @@ public class WaveManager : MonoBehaviour
     public void WaveStart()
     {
         Waving = true;
-        Wave_time = 40;
+        Wave_time = 50;
     }
 
     public void WaveEnd()
     {
         Waving = false;
-        Wave_Cooltime = 5;
+        Wave_Cooltime = 10;
         GM.Money += 500 * GM.Wave;
         GM.Wave++;
         Josuck_Start();

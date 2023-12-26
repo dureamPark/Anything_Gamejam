@@ -104,9 +104,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GM: {fileID: 0}
   AM: {fileID: 0}
-  E_HP: 40
+  E_HP: 30
   E_AD: 10
-  E_Speed: 1
+  E_Speed: 2
   attackCooldown: 3
   Drop_Money: 20
 --- !u!61 &1257402629876874546

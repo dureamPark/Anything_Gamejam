@@ -62,10 +62,10 @@ public class AttackManager : MonoBehaviour
         Skill5.SetActive(false);
         Skill6.SetActive(false);
         Mandarin_Damage = 1;
-        Dekopon_Damage = 30;
+        Dekopon_Damage = 10;
         Silver_cutlassfish_damage = 80;
         Dolhareubang_damage = 20;
-        Sibalroma_Damage = 80;
+        Sibalroma_Damage = 20;
         Moai_Damage = 80;
         Mandarin_Active = true;
         Dekopon_Active = true;
