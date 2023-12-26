@@ -26,6 +26,16 @@ public class GameManager : MonoBehaviour
         Wave = 1;
         Money = 1000;
         HP_Gauge.value = Player_HP / Max_Player_HP;
+
+        if (Instance == null)
+        {
+            DontDestroyOnLoad(this.gameObject);
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     
