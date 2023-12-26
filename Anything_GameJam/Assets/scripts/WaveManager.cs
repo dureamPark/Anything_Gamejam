@@ -6,6 +6,9 @@ public class WaveManager : MonoBehaviour
 {
     public static WaveManager Instance;
     public GameManager GM;
+    public GameObject Josuk;
+    public GameObject player_space;
+    public floor FL;
     public bool Waving;
 
     public float Wave_Cooltime;
@@ -66,6 +69,26 @@ public class WaveManager : MonoBehaviour
         Wave_Cooltime = 5;
         GM.Money += 500 * GM.Wave;
         GM.Wave++;
+        Josuck_Start();
+        Invoke("Josuck_End", 3.6f);
+    }
+
+    public void Josuck_Start()
+    {
+        FL.Start_josuck();
+        Josuk.SetActive(true);
+        Vector3 newPosition = player_space.transform.position + new Vector3(0 , 0.25f , 0);
+        player_space.transform.position = newPosition;
+
+    }
+
+    public void Josuck_End()
+    {
+        FL.End_josuck();
+        Josuk.SetActive(false);
+
+        Vector3 originalPosition = new Vector3(5.9f, -0.25f, 0);
+        player_space.transform.position = originalPosition;
     }
     
 }
