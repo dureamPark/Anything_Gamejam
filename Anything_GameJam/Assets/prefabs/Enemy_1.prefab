@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1257402629876874546}
   - component: {fileID: 1757930234641100021}
   - component: {fileID: 1098981719909902522}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy_1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -100,10 +100,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dde5565d90a98814db9f28f085f65451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  E_HP: 1
-  E_AD: 1
+  AM: {fileID: 0}
+  GM: {fileID: 0}
+  E_HP: 20
+  E_AD: 10
   E_Speed: 1
   attackCooldown: 3
+  Drop_money: 10
 --- !u!61 &1257402629876874546
 BoxCollider2D:
   m_ObjectHideFlags: 0

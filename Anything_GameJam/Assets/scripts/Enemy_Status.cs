@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Enemy_Status : MonoBehaviour
 {
+    public AttackManager AM;
+    public GameManager GM;
     private WaveManager waveManager;
     private Rigidbody2D rb;
     private Animator animator;
@@ -16,10 +18,14 @@ public class Enemy_Status : MonoBehaviour
     private bool Slow = false;
     private bool Stop = false;
     private bool CanAttack = false;
-    private float attackTimer = 0f; 
+    private float attackTimer = 0f;
+
+    public int Drop_money;
 
     private void Start()
     {
+        AM = FindAnyObjectByType<AttackManager>();
+        GM = FindAnyObjectByType<GameManager>();
         animator = gameObject.GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -86,6 +92,7 @@ public class Enemy_Status : MonoBehaviour
     private void ATTACK()
     {
         Debug.Log("Attacking");
+        GM.Player_HP -= E_AD;
     }
 
     private void DAMAGE(int HitDamaged)
@@ -101,6 +108,7 @@ public class Enemy_Status : MonoBehaviour
     {
         if (E_HP <= 0)
         {
+            GM.Money += Drop_money;
             Destroy(gameObject);
         }
     }
@@ -117,17 +125,17 @@ public class Enemy_Status : MonoBehaviour
         {
             Debug.Log("±Ö¿¡ ¸Â´Ù");
             isDamaged = true;
-            DAMAGE(1);
+            DAMAGE(AM.Mandarin_Damage);
         }
         if (collision.gameObject.tag == "Hanra")
         {
             isDamaged = true;
-            DAMAGE(2);
+            DAMAGE(AM.Dekopon_Damage);
         }
         if (collision.gameObject.tag == "Silver")
         {
             isDamaged = true;
-            DAMAGE(3);
+            DAMAGE(AM.Silver_cutlassfish_damage);
         }
 
         if (collision.gameObject.tag == "Dol")

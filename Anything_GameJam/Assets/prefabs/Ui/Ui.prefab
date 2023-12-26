@@ -2472,6 +2472,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GM: {fileID: 7207151963185175820}
+  Mandarin: {fileID: 2962460085493100440, guid: 87e0330628b019c48aba0dade5c6a49b, type: 3}
+  Dekopon: {fileID: 6144485648807864769, guid: 7cca78e1d9dca284385f82cc7415f386, type: 3}
+  Dolharbang: {fileID: 0}
+  Silver_culassfish: {fileID: 2016666889690130510, guid: 2360cbfd981e81e40908c9190ea4517d, type: 3}
   Mandarin_Damage: 0
   Dekopon_Damage: 0
   Silver_cutlassfish_damage: 0
