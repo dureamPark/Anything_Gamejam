@@ -8,9 +8,10 @@ public class WaveManager : MonoBehaviour
     public GameManager GM;
     public bool Waving;
     public int Enemy_Num;
-    public int EnemyA_N;
-    public int EnemyB_N;
-    public int EnemyC_N;
+    public bool EnemyA_N = false;
+    public bool EnemyB_N = false;
+    public bool EnemyC_N = false;
+    public bool EnemyD_N = false;
 
     void Start()
     {
@@ -56,71 +57,48 @@ public class WaveManager : MonoBehaviour
         if(GM.Wave == 1)
         {
             Enemy_Num = 3;
-            EnemyA_N = 1;
-            EnemyB_N = 1;
-            EnemyC_N = 1;
-        }else if(GM.Wave == 2)
+            EnemyA_N = true;
+
+        }
+        else if(GM.Wave == 2)
         {
-            Enemy_Num = 3;
-            EnemyA_N = 1;
-            EnemyB_N = 1;
-            EnemyC_N = 1;
+            Enemy_Num = 5;
+            EnemyB_N = true;
         }
         else if(GM.Wave == 3)
         {
-            Enemy_Num = 3;
-            EnemyA_N = 1;
-            EnemyB_N = 1;
-            EnemyC_N = 1;
+            Enemy_Num = 7;
         }
         else if(GM.Wave == 4)
         {
-            Enemy_Num = 3;
-            EnemyA_N = 1;
-            EnemyB_N = 1;
-            EnemyC_N = 1;
+            Enemy_Num = 8;
         }
         else if(GM.Wave == 5)
         {
-            Enemy_Num = 3;
-            EnemyA_N = 1;
-            EnemyB_N = 1;
-            EnemyC_N = 1;
+            Enemy_Num = 5;
+            EnemyC_N = true;
         }
         else if(GM.Wave == 6)
         {
-            Enemy_Num = 3;
-            EnemyA_N = 1;
-            EnemyB_N = 1;
-            EnemyC_N = 1;
+            Enemy_Num = 9;
         }
         else if(GM.Wave == 7)
         {
-            Enemy_Num = 3;
-            EnemyA_N = 1;
-            EnemyB_N = 1;
-            EnemyC_N = 1;
+            Enemy_Num = 11;
         }
         else if(GM.Wave == 8)
         {
-            Enemy_Num = 3;
-            EnemyA_N = 1;
-            EnemyB_N = 1;
-            EnemyC_N = 1;
+            Enemy_Num = 7;
+            EnemyD_N = true;
         }
         else if(GM.Wave == 9)
         {
-            Enemy_Num = 3;
-            EnemyA_N = 1;
-            EnemyB_N = 1;
-            EnemyC_N = 1;
+            Enemy_Num = 9;
         }
         else if(GM.Wave == 10)
         {
-            Enemy_Num = 3;
-            EnemyA_N = 1;
-            EnemyB_N = 1;
-            EnemyC_N = 1;
+            Enemy_Num = 11;
+
         }
     }
 }
