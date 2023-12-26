@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public float Max_Player_HP;
     public int Wave;
     public int Money;
-
+    
     public Slider HP_Gauge;
     public Text Money_text;
 
