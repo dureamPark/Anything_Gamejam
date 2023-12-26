@@ -8,6 +8,7 @@ public class AttackManager : MonoBehaviour
 
 
     public GameManager GM;
+    public UpgradeWeapon UW;
 
     public GameObject Mandarin;
     public GameObject Dekopon;
@@ -37,6 +38,12 @@ public class AttackManager : MonoBehaviour
     public bool Silver_cutlassfish_Active;
 
 
+
+    //È÷µç ½ºÅ³
+    public int Sibalroma_Damage;
+    public float Sibalroma_CoolTime;
+    public bool Sibalroma_Active;
+
     void Start()
     {
         Mandarin_Damage = 1;
@@ -63,8 +70,7 @@ public class AttackManager : MonoBehaviour
 
     void Update()
     {
-        if (Mandarin_Cooltime >= 0)
-
+        if(Mandarin_Cooltime >= 0)
         {
             Mandarin_Cooltime -= Time.deltaTime;
         }
@@ -74,60 +80,70 @@ public class AttackManager : MonoBehaviour
         {
             Dekopon_CoolTime -= Time.deltaTime;
         }
+
         if(Silver_cutlassfish_CoolTime >= 0)
         {
             Silver_cutlassfish_CoolTime -= Time.deltaTime;
         }
-        if(Dolhareubang_CoolTime >= 0)
 
-        if (Dekopon_CoolTime >= 0)
+        if(Dekopon_CoolTime >= 0)
         {
             Dekopon_CoolTime -= Time.deltaTime;
         }
-        if (Silver_cutlassfish_CoolTime >= 0)
+
+        if(Silver_cutlassfish_CoolTime >= 0)
         {
             Silver_cutlassfish_CoolTime -= Time.deltaTime;
         }
-        if (Dolhareubang_CoolTime >= 0)
 
+        if(Dolhareubang_CoolTime >= 0)
         {
             Dolhareubang_CoolTime -= Time.deltaTime;
         }
 
-        if (!Mandarin_Active)
+        if(Sibalroma_CoolTime >= 0)
         {
-            if (Mandarin_Cooltime <= 0)
+            Sibalroma_CoolTime -= Time.deltaTime;
+        }
+
+        if(!Mandarin_Active)
+        {
+            if(Mandarin_Cooltime <= 0)
             {
                 Mandarin_Active = true;
             }
         }
 
 
-        if (!Dekopon_Active)
+        if(!Dekopon_Active)
         {
-
             if(Dekopon_CoolTime <= 0)
-
-            if (Dekopon_CoolTime <= 0)
-
             {
                 Dekopon_Active = true;
             }
         }
 
-        if (!Silver_cutlassfish_Active)
+        if(!Silver_cutlassfish_Active)
         {
-            if (Silver_cutlassfish_CoolTime <= 0)
+            if(Silver_cutlassfish_CoolTime <= 0)
             {
                 Silver_cutlassfish_Active = true;
             }
         }
 
-        if (!Dolhareubang_Active)
+        if(!Dolhareubang_Active)
         {
-            if (Dolhareubang_CoolTime <= 0)
+            if(Dolhareubang_CoolTime <= 0)
             {
                 Dolhareubang_Active = true;
+            }
+        }
+
+        if(!Sibalroma_Active)
+        {
+            if(Sibalroma_CoolTime <= 0)
+            {
+                Sibalroma_Active = true;
             }
         }
     }
@@ -208,5 +224,19 @@ public class AttackManager : MonoBehaviour
     public void Harbang_Audio_play()
     {
         DH_A.Au_Play();
+    }
+
+    public void Sibalroma_skill()
+    {
+        if (UW.Skill5_Unlock)
+        {
+            if (Sibalroma_Active)
+            {
+                Debug.Log("½µ½´½µ");
+
+                Sibalroma_CoolTime = 50.0f;
+                Sibalroma_Active = false;
+            }
+        }
     }
 }

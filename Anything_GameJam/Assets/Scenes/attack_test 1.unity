@@ -2352,6 +2352,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 580405980848367013, guid: e881f2ce16764d24e9cbde01b9bbfbb0, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5fbd989f349f59949a53e124e9f53018, type: 3}
+    - target: {fileID: 973001003520949591, guid: e881f2ce16764d24e9cbde01b9bbfbb0, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 09f16b90bd4d28641803e20409a5222b, type: 3}
+    - target: {fileID: 2110566796551454402, guid: e881f2ce16764d24e9cbde01b9bbfbb0, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2230267400673944da5415d5133cc103, type: 3}
     - target: {fileID: 2525764640537788150, guid: e881f2ce16764d24e9cbde01b9bbfbb0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.08
@@ -2396,6 +2408,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManage
       objectReference: {fileID: 0}
+    - target: {fileID: 6881657791107147848, guid: e881f2ce16764d24e9cbde01b9bbfbb0, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: eacf33bf5de48b4478ba32931d963291, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
