@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class ShuckHB : MonoBehaviour
 {
-    bool isAttacking = true; // 공격 중 여부를 확인하는 변수
+    public bool isAttacking = false; // 공격 중 여부를 확인하는 변수
     float targetX = -5f; // 목표 x 위치
     float speed = 5f; // 이동 속도
+    int attackcount = 3;
 
     void Start()
     {
@@ -16,6 +17,14 @@ public class ShuckHB : MonoBehaviour
 
     void Update()
     {
+        if(attackcount == 0)
+        {
+            Debug.Log("슈슉이 작동완료");
+            isAttacking = false;
+            gameObject.SetActive(false);
+            attackcount = 3;
+        }
+
         // 공격 중일 때만 이동하도록 처리
         if (isAttacking)
         {
@@ -23,6 +32,7 @@ public class ShuckHB : MonoBehaviour
             if (Mathf.Abs(transform.position.x - targetX) < 0.1f)
             {
                 targetX = (targetX == -5f) ? 5f : -5f; // 반대 방향으로 변경
+                attackcount--;
             }
 
             // 계속해서 목표 위치로 이동

@@ -155,5 +155,17 @@ public class Enemy_Status : MonoBehaviour
                 StartCoroutine(SLOW());
             }
         }
+
+        if(collision.gameObject.tag == "shuckHB")
+        {
+            isDamaged = true;
+            DAMAGE(AM.Sibalroma_Damage);
+        }
+
+        if(collision.gameObject.tag == "moai")
+        {
+            isDamaged = true;
+            DAMAGE(AM.Moai_Damage);
+        }
     }
 }

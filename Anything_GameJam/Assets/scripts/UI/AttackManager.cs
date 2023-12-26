@@ -14,15 +14,21 @@ public class AttackManager : MonoBehaviour
     public GameObject Dekopon;
     public GameObject Dolharbang;
     public GameObject Silver_culassfish;
+    public GameObject shushucki;
+    public GameObject moai;
 
     public Audio_play M_A;
     public Audio_play D_A;
     public Audio_play S_A;
     public Audio_play DH_A;
+    public Audio_play SH_A;
 
     public GameObject Skill5;
+    public GameObject Skill6;
 
     public Harbang harbang;
+    public ShuckHB shuck;
+    public Moai MI;
 
 
 
@@ -36,7 +42,7 @@ public class AttackManager : MonoBehaviour
     public float Silver_cutlassfish_CoolTime;
     public bool Mandarin_Active;
     public bool Dekopon_Active;
-    public static bool Dolhareubang_Active;
+    public bool Dolhareubang_Active;
     public bool Silver_cutlassfish_Active;
 
 
@@ -46,17 +52,26 @@ public class AttackManager : MonoBehaviour
     public float Sibalroma_CoolTime;
     public bool Sibalroma_Active;
 
+    public int Moai_Damage;
+    public float Moai_CoolTime;
+    public bool Moai_Active;
+
     void Start()
     {
         Skill5.SetActive(false);
+        Skill6.SetActive(false);
         Mandarin_Damage = 1;
         Dekopon_Damage = 30;
         Silver_cutlassfish_damage = 80;
         Dolhareubang_damage = 20;
+        Sibalroma_Damage = 80;
+        Moai_Damage = 80;
         Mandarin_Active = true;
         Dekopon_Active = true;
         Dolhareubang_Active = true;
         Silver_cutlassfish_Active = true;
+        Sibalroma_Active = true;
+        Moai_Active = true;
         UW = FindObjectOfType<UpgradeWeapon>();
         if (Instance == null)
         {
@@ -69,7 +84,7 @@ public class AttackManager : MonoBehaviour
     }
 
 
-    
+
 
     void Update()
     {
@@ -78,84 +93,102 @@ public class AttackManager : MonoBehaviour
             Skill5.SetActive(true);
         }
 
-        if(Mandarin_Cooltime >= 0)
+        if (UW.Skill6_Unlock)
+        {
+            Skill6.SetActive(true);
+        }
+
+        if (Mandarin_Cooltime >= 0)
         {
             Mandarin_Cooltime -= Time.deltaTime;
         }
 
 
-        if(Dekopon_CoolTime >= 0)
+        if (Dekopon_CoolTime >= 0)
         {
             Dekopon_CoolTime -= Time.deltaTime;
         }
 
-        if(Silver_cutlassfish_CoolTime >= 0)
+        if (Silver_cutlassfish_CoolTime >= 0)
         {
             Silver_cutlassfish_CoolTime -= Time.deltaTime;
         }
 
-        if(Dekopon_CoolTime >= 0)
+        if (Dekopon_CoolTime >= 0)
         {
             Dekopon_CoolTime -= Time.deltaTime;
         }
 
-        if(Silver_cutlassfish_CoolTime >= 0)
+        if (Silver_cutlassfish_CoolTime >= 0)
         {
             Silver_cutlassfish_CoolTime -= Time.deltaTime;
         }
 
-        if(Dolhareubang_CoolTime >= 0)
+        if (Dolhareubang_CoolTime >= 0)
         {
             Dolhareubang_CoolTime -= Time.deltaTime;
         }
 
-        if(Sibalroma_CoolTime >= 0)
+        if (Sibalroma_CoolTime >= 0)
         {
             Sibalroma_CoolTime -= Time.deltaTime;
         }
 
-        if(!Mandarin_Active)
+        if (Moai_CoolTime >= 0)
         {
-            if(Mandarin_Cooltime <= 0)
+            Moai_CoolTime -= Time.deltaTime;
+        }
+
+        if (!Mandarin_Active)
+        {
+            if (Mandarin_Cooltime <= 0)
             {
                 Mandarin_Active = true;
             }
         }
 
 
-        if(!Dekopon_Active)
+        if (!Dekopon_Active)
         {
-            if(Dekopon_CoolTime <= 0)
+            if (Dekopon_CoolTime <= 0)
             {
                 Dekopon_Active = true;
             }
         }
 
-        if(!Silver_cutlassfish_Active)
+        if (!Silver_cutlassfish_Active)
         {
-            if(Silver_cutlassfish_CoolTime <= 0)
+            if (Silver_cutlassfish_CoolTime <= 0)
             {
                 Silver_cutlassfish_Active = true;
             }
         }
 
-        if(!Dolhareubang_Active)
+        if (!Dolhareubang_Active)
         {
-            if(Dolhareubang_CoolTime <= 0)
+            if (Dolhareubang_CoolTime <= 0)
             {
                 Dolhareubang_Active = true;
             }
         }
 
-        if(!Sibalroma_Active)
+        if (!Sibalroma_Active)
         {
-            if(Sibalroma_CoolTime <= 0)
+            if (Sibalroma_CoolTime <= 0)
             {
                 Sibalroma_Active = true;
             }
         }
-    }
 
+        if (!Moai_Active)
+        {
+            if (Moai_CoolTime <= 0)
+            {
+                Moai_Active = true;
+            }
+        }
+
+    }
     public void Mandarin_Attack()
     {
         if (Mandarin_Active)
@@ -243,8 +276,37 @@ public class AttackManager : MonoBehaviour
                 Debug.Log("½µ½´½µ");
 
                 Sibalroma_CoolTime = 50.0f;
+                shuck.isAttacking = true;
+                shushucki.SetActive(true);
                 Sibalroma_Active = false;
+                Shuck_Audio_play();
             }
         }
+    }
+
+    public void Shuck_Audio_play()
+    {
+        SH_A.Au_Play();
+    }
+
+    public void Mirandao_Moai_Skill()
+    {
+        if(UW.Skill6_Unlock)
+        {
+            if (Moai_Active)
+            {
+                Debug.Log("±Ö¸ð¾ÆÀÌ");
+                Moai_CoolTime = 50.0f;
+                moai.SetActive(true);
+                MI.isDown = true;
+                Moai_Active = false;
+                Invoke("Moai_Deactive", 7.0f);
+            }
+        }
+    }
+
+    public void Moai_Deactive()
+    {
+        moai.SetActive(false);
     }
 }

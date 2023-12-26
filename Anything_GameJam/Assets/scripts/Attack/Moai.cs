@@ -6,7 +6,7 @@ public class Moai : MonoBehaviour
     public GameObject laser;
     public Transform targetPosition;
     private Animator animator;
-    public bool isDown = true; //이거 관리 필요
+    public bool isDown = false; //이거 관리 필요
     private float downSpeed = 10.0f;
 
     void Start()

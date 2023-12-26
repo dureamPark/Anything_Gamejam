@@ -9,6 +9,7 @@ public class UpgradeWeapon : MonoBehaviour
     public GameManager GM;
 
     public bool Skill5_Unlock = false;
+    public bool Skill6_Unlock = false;
 
     public int Mandarin_Upgrade_count = 0;
     public int Dekopon_Upgrade_count = 0;
@@ -31,12 +32,17 @@ public class UpgradeWeapon : MonoBehaviour
     {
         if (!Skill5_Unlock)
         {
-            if (Mandarin_Upgrade_count >= 10)
+            if (Harbang_Upgrade_count == 1)
             {
-                if (Harbang_Upgrade_count >= 5)
-                {
-                    Skill5_Unlock = true;
-                }
+                Skill5_Unlock = true;
+            }
+        }
+
+        if (!Skill6_Unlock)
+        {
+            if (Harbang_Upgrade_count == 2)
+            {
+                Skill6_Unlock = true;
             }
         }
     }
@@ -63,12 +69,14 @@ public class UpgradeWeapon : MonoBehaviour
     }
     public void dolhareubang_upgrade()
     {
-        Debug.Log("돌하르방 업그레이드");
-        if (GM.Money >= 500)
+        Debug.Log("돌하르방(특수스킬 해금) 업그레이드");
+        if(Harbang_Upgrade_count <= 2)
         {
-            GM.Money -= 500;
-            AM.Dolhareubang_damage += 5;
-            Harbang_Upgrade_count++;
+            if (GM.Money >= 5000)
+            {
+                GM.Money -= 5000;
+                Harbang_Upgrade_count++;
+            }
         }
     }
     public void sliverfish_upgrade()
