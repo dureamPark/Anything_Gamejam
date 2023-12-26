@@ -6,8 +6,16 @@ public class AttackManager : MonoBehaviour
 {
     public static AttackManager Instance;
 
+<<<<<<< Updated upstream
     public GameManager GM;
 
+=======
+
+    public GameManager GM;
+
+
+
+>>>>>>> Stashed changes
 
     public int Mandarin_Damage;
     public int Dekopon_Damage;
@@ -44,14 +52,23 @@ public class AttackManager : MonoBehaviour
         }
     }
 
+<<<<<<< Updated upstream
     
     void Update()
     {
         if(Mandarin_Cooltime >= 0)
+=======
+
+    void Update()
+    {
+        if (Mandarin_Cooltime >= 0)
+
+>>>>>>> Stashed changes
         {
             Mandarin_Cooltime -= Time.deltaTime;
         }
 
+<<<<<<< Updated upstream
         if(Dekopon_CoolTime >= 0)
         {
             Dekopon_CoolTime -= Time.deltaTime;
@@ -61,6 +78,29 @@ public class AttackManager : MonoBehaviour
             Silver_cutlassfish_CoolTime -= Time.deltaTime;
         }
         if(Dolhareubang_CoolTime >= 0)
+=======
+
+        if (Dekopon_CoolTime >= 0)
+        {
+            Dekopon_CoolTime -= Time.deltaTime;
+        }
+        if (Silver_cutlassfish_CoolTime >= 0)
+        {
+            Silver_cutlassfish_CoolTime -= Time.deltaTime;
+        }
+        if (Dolhareubang_CoolTime >= 0)
+
+            if (Dekopon_CoolTime >= 0)
+            {
+                Dekopon_CoolTime -= Time.deltaTime;
+            }
+        if (Silver_cutlassfish_CoolTime >= 0)
+        {
+            Silver_cutlassfish_CoolTime -= Time.deltaTime;
+        }
+        if (Dolhareubang_CoolTime >= 0)
+
+>>>>>>> Stashed changes
         {
             Dolhareubang_CoolTime -= Time.deltaTime;
         }
@@ -76,10 +116,21 @@ public class AttackManager : MonoBehaviour
 
         if (!Dekopon_Active)
         {
+<<<<<<< Updated upstream
             if(Dekopon_CoolTime <= 0)
             {
                 Dekopon_Active = true;
             }
+=======
+
+            if (Dekopon_CoolTime <= 0)
+
+                if (Dekopon_CoolTime <= 0)
+
+                {
+                    Dekopon_Active = true;
+                }
+>>>>>>> Stashed changes
         }
 
         if (!Silver_cutlassfish_Active)
@@ -98,12 +149,19 @@ public class AttackManager : MonoBehaviour
             }
         }
     }
-
+   
     public void Mandarin_Attack()
     {
         if (Mandarin_Active)
         {
+<<<<<<< Updated upstream
             Debug.Log("귤");
+=======
+
+            Debug.Log("귤");
+
+
+>>>>>>> Stashed changes
             Mandarin_Cooltime = 0.3f;
             Mandarin_Active = false;
         }
@@ -114,8 +172,16 @@ public class AttackManager : MonoBehaviour
     {
         if (Dekopon_Active)
         {
+<<<<<<< Updated upstream
             GM.Money -= 5;
             Debug.Log("한라봉");
+=======
+
+            GM.Money -= 5;
+            Debug.Log("한라봉");
+
+
+>>>>>>> Stashed changes
             Dekopon_CoolTime = 2.0f;
             Dekopon_Active = false;
         }
@@ -126,20 +192,36 @@ public class AttackManager : MonoBehaviour
     {
         if (Silver_cutlassfish_Active)
         {
+<<<<<<< Updated upstream
             Debug.Log("은갈치");
             GM.Money -= 50;
+=======
+
+            Debug.Log("은갈치");
+            GM.Money -= 50;
+
+
+>>>>>>> Stashed changes
             Silver_cutlassfish_CoolTime = 5.0f;
             Silver_cutlassfish_Active = false;
         }
-        // 은갈치 날리기
+
     }
 
     public void Dolhareubang_Skill()
     {
         if (Dolhareubang_Active)
         {
+<<<<<<< Updated upstream
             Debug.Log("돌하르방");
             GM.Money -= 30;
+=======
+
+            Debug.Log("돌하르방");
+            GM.Money -= 30;
+
+
+>>>>>>> Stashed changes
             Dolhareubang_CoolTime = 10.0f;
             Dolhareubang_Active = false;
         }

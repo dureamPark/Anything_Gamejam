@@ -3,7 +3,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+<<<<<<< Updated upstream
 public class NewBehaviourScript : MonoBehaviour
+=======
+public class CoolTime : MonoBehaviour
+>>>>>>> Stashed changes
 {
     public GameObject[] hideButtons;
     public GameObject[] textPros;
