@@ -4,93 +4,99 @@ using UnityEngine;
 
 public class Enemy_generator : MonoBehaviour
 {
+    //몹 프리펩 받는 함수
     [SerializeField] GameObject mobPrefabA;
     [SerializeField] GameObject mobPrefabB;
     [SerializeField] GameObject mobPrefabC;
     [SerializeField] GameObject mobPrefabD;
 
     WaveManager waveManager;
-    GameManager gameManager;
+
+    bool isWave; //웨이브 on
+    int E_Num; //e_num으로 적 수확인
+    bool mob_A;
+    bool mob_b;
+    bool mob_c;
+    bool mob_d;
+    float timeSinceLastSpawn; //스폰시간
+    float spawnInterval = 0.5f; //스폰대기
 
     void Start()
     {
-        // Assuming you get references to WaveManager and GameManager somehow
         waveManager = GetComponent<WaveManager>();
-        gameManager = GetComponent<GameManager>();
-
-        // Your other initialization code here
+        timeSinceLastSpawn = 0f; 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        UpdateStatus();
-        if (waveManager.Waving)
+        UpdateStatus(); //wavemanager코드 업뎃
+
+        if (isWave) //iswave true면,
         {
-            GenerateMonsters();
+            timeSinceLastSpawn += Time.deltaTime;
+            if (timeSinceLastSpawn >= spawnInterval)
+            {
+                GenerateMonsters();
+                timeSinceLastSpawn = 0f;
+            }
         }
     }
 
     void UpdateStatus()
     {
-        int wave = gameManager.Wave;
-        bool isWave = waveManager.Waving;
-        int E_Num = waveManager.Enemy_Num;
-        bool mob_A = waveManager.EnemyA_N;
-        bool mob_b = waveManager.EnemyB_N;
-        bool mob_c = waveManager.EnemyC_N;
-        bool mob_d = waveManager.EnemyD_N;
+        isWave = waveManager.Waving;
+        E_Num = waveManager.Enemy_Num;
+        mob_A = waveManager.EnemyA_N;
+        mob_b = waveManager.EnemyB_N;
+        mob_c = waveManager.EnemyC_N;
+        mob_d = waveManager.EnemyD_N;
     }
 
     void GenerateMonsters()
     {
-        int wave = gameManager.Wave;
-        int enemyCount = waveManager.Enemy_Num;
-
         List<GameObject> activePrefabs = new List<GameObject>();
 
-        // Adding active monster prefabs based on their bool flags
-        if (waveManager.EnemyA_N)
+        if (mob_A)
         {
             activePrefabs.Add(mobPrefabA);
         }
-        if (waveManager.EnemyB_N)
+        if (mob_b)
         {
             activePrefabs.Add(mobPrefabB);
         }
-        if (waveManager.EnemyC_N)
+        if (mob_c)
         {
             activePrefabs.Add(mobPrefabC);
         }
-        if (waveManager.EnemyD_N)
+        if (mob_d)
         {
             activePrefabs.Add(mobPrefabD);
         }
 
         int totalActivePrefabs = activePrefabs.Count;
 
-        for (int i = 0; i < enemyCount; i++)
+        for (int i = 0; i < E_Num; i++)
         {
             if (i < totalActivePrefabs)
             {
-                // Adjusting spawn probabilities
                 float spawnProbability = Random.value;
+                GameObject prefabToSpawn = activePrefabs[i];
 
-                if (spawnProbability <= 0.6f && activePrefabs.Contains(mobPrefabA))
+                if (spawnProbability <= 0.6f && prefabToSpawn == mobPrefabA)
                 {
-                    Instantiate(activePrefabs[activePrefabs.IndexOf(mobPrefabA)], transform.position, Quaternion.identity);
+                    Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
                 }
-                else if (spawnProbability <= 0.4f && activePrefabs.Contains(mobPrefabB))
+                else if (spawnProbability <= 0.4f && prefabToSpawn == mobPrefabB)
                 {
-                    Instantiate(activePrefabs[activePrefabs.IndexOf(mobPrefabB)], transform.position, Quaternion.identity);
+                    Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
                 }
-                else if (spawnProbability <= 0.3f && activePrefabs.Contains(mobPrefabC))
+                else if (spawnProbability <= 0.3f && prefabToSpawn == mobPrefabC)
                 {
-                    Instantiate(activePrefabs[activePrefabs.IndexOf(mobPrefabC)], transform.position, Quaternion.identity);
+                    Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
                 }
-                else if (spawnProbability <= 0.2f && activePrefabs.Contains(mobPrefabD))
+                else if (spawnProbability <= 0.2f && prefabToSpawn == mobPrefabD)
                 {
-                    Instantiate(activePrefabs[activePrefabs.IndexOf(mobPrefabD)], transform.position, Quaternion.identity);
+                    Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
                 }
             }
         }
