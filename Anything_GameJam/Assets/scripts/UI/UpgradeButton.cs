@@ -6,18 +6,22 @@ using UnityEngine.UI;
 public class UpgradeButton : MonoBehaviour
 {
     public Button bt1, bt2, bt3, bt4;
-    public int M;
-    public int Dek;
-    public int Dol;
-    public int Sil;
-    public int Coin;
+    public GameManager GM;
+    public AttackManager AM;
+    //public int M;
+    //public int Dek;
+    //public int Dol;
+    //public int Sil;
+    //public int Coin;
     void Start()
     {
-        int M = GameObject.Find("AttackManager").GetComponent<AttackManager>().Mandarin_Damage;
-        int Dek = GameObject.Find("AttackManager").GetComponent<AttackManager>().Dekopon_Damage;
-        int Dol = GameObject.Find("AttackManager").GetComponent<AttackManager>().Dolhareubang_damage;
-        int Sil = GameObject.Find("AttackManager").GetComponent<AttackManager>().Silver_cutlassfish_damage;
-        int Coin = GameObject.Find("GameManager").GetComponent<GameManager>().Money;
+        GM = FindObjectOfType<GameManager>();
+        AM = FindObjectOfType<AttackManager>();
+        //int M = GameObject.Find("AttackManager").GetComponent<AttackManager>().Mandarin_Damage;
+        //int Dek = GameObject.Find("AttackManager").GetComponent<AttackManager>().Dekopon_Damage;
+        //int Dol = GameObject.Find("AttackManager").GetComponent<AttackManager>().Dolhareubang_damage;
+        //int Sil = GameObject.Find("AttackManager").GetComponent<AttackManager>().Silver_cutlassfish_damage;
+        //int Coin = GameObject.Find("GameManager").GetComponent<GameManager>().Money;
         bt1.onClick.AddListener(bt1up);
         bt2.onClick.AddListener(bt2up);
         bt3.onClick.AddListener(bt3up);
@@ -31,65 +35,65 @@ public class UpgradeButton : MonoBehaviour
     }
     void bt1up()
     {
-        if (Coin <= 0)
+        if (GM.Money <= 0)
         {
             Debug.Log("µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù");
         }
         else
         {
             Debug.Log("±Ö ¾÷±×·¹ÀÌµå");
-            M += 1;
-            Coin -= 100;
-            Debug.Log("±Ö : " + M);
-            Debug.Log("µ·: " + Coin);
+            AM.Mandarin_Damage += 1;
+            GM.Money -= 100;
+            Debug.Log("±Ö : " + AM.Mandarin_Damage);
+            Debug.Log("µ·: " + GM.Money);
         }
         
     }
     void bt2up()
     {
-        if (Coin <= 0)
+        if (GM.Money <= 0)
         {
             Debug.Log("µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù");
         }
         else
         {
             Debug.Log("ÇÑ¶óºÀ ¾÷±×·¹ÀÌµå");
-            Dek += 1;
-            Coin -= 200;
-            Debug.Log("ÇÑ¶óºÀ : " + Dek);
-            Debug.Log("µ·: " + Coin);
+            AM.Dekopon_Damage += 1;
+            GM.Money -= 200;
+            Debug.Log("ÇÑ¶óºÀ : " + AM.Dekopon_Damage);
+            Debug.Log("µ·: " + GM.Money);
         }
         
     }
     void bt3up()
     {
-        if (Coin <= 0)
+        if (GM.Money <= 0)
         {
             Debug.Log("µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù");
         }
         else
         {
             Debug.Log("µ¹ÇÏ¸£¹æ ¾÷±×·¹ÀÌµå");
-            Dol += 1;
-            Coin -= 300;
-            Debug.Log("µ¹ÇÏ¸£¹æ : " + Dol);
-            Debug.Log("µ·: " + Coin);
+            AM.Dolhareubang_damage += 1;
+            GM.Money -= 300;
+            Debug.Log("µ¹ÇÏ¸£¹æ : " + AM.Dolhareubang_damage);
+            Debug.Log("µ·: " + GM.Money);
         }
         
     }
     void bt4up()
     {
-        if (Coin <= 0)
+        if (GM.Money <= 0)
         {
             Debug.Log("µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù");
         }
         else
         {
             Debug.Log("Àº°¥Ä¡ ¾÷±×·¹ÀÌµå");
-        Sil += 1;
-        Coin -= 500;
-        Debug.Log("Àº°¥Ä¡ : " + Sil);
-        Debug.Log("µ·: " + Coin);
+        AM.Silver_cutlassfish_damage += 1;
+        GM.Money -= 500;
+        Debug.Log("Àº°¥Ä¡ : " + AM.Silver_cutlassfish_damage);
+        Debug.Log("µ·: " + GM.Money);
         }
         
     }
