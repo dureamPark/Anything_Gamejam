@@ -13,28 +13,25 @@ public class Enemy_generator : MonoBehaviour
     GameManager gameManager;
 
     bool isWave;
-    float timeSinceLastSpawn;
-    float spawnInterval;
-    int WaveCount;
+    float timeSinceLastSpawnA;
+    float timeSinceLastSpawnB;
+    float timeSinceLastSpawnC;
+    float timeSinceLastSpawnD;
 
-    float spawnInterval_A;
-    float spawnInterval_B;
-    float spawnInterval_C;
-    float spawnInterval_D;
+    float timeToSpawn_A = 3f;
+    float timeToSpawn_B = 3.5f;
+    float timeToSpawn_C = 4.5f;
+    float timeToSpawn_D = 6f;
+
+    bool mob_A = true;
+    bool mob_B = false;
+    bool mob_C = false;
+    bool mob_D = false;
 
     void Start()
     {
         waveManager = FindObjectOfType<WaveManager>();
-        timeSinceLastSpawn = Random.Range(0.5f, 2f);
-        spawnInterval = Random.Range(0.5f, 2.5f);
-        spawnInterval_A = 3f;
-        spawnInterval_B = 3.5f;
-        spawnInterval_C = 4.5f;
-        spawnInterval_D = 6f;
-        bool mob_A = true;
-        bool mob_B = false;
-        bool mob_C = false;
-        bool mob_D = false;
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     void Update()
@@ -43,64 +40,64 @@ public class Enemy_generator : MonoBehaviour
 
         if (isWave)
         {
-            timeSinceLastSpawn += Time.deltaTime;
-            if (timeSinceLastSpawn >= spawnInterval)
-            {
-                Invoke("GenerateMonsters", spawnInterval);
-                timeSinceLastSpawn = 0f;
-                spawnInterval = Random.Range(0.5f, 2.5f);
-            }
+            timeSinceLastSpawnA += Time.deltaTime;
+            timeSinceLastSpawnB += Time.deltaTime;
+            timeSinceLastSpawnC += Time.deltaTime;
+            timeSinceLastSpawnD += Time.deltaTime;
+
+            GenerateMonsters();
         }
     }
 
     void UpdateStatus()
     {
-        WaveCount = gameManager.Wave;
+        int currentWave = gameManager.Wave;
         isWave = waveManager.Waving;
 
-        if(WaveCount == 2)
+        if (currentWave >= 2 && !mob_B)
         {
-            spawnInterval_A = 2f;
-        }else if(WaveCount == 4)
-        {
-            spawnInterval_B = 3f;
+            timeToSpawn_A = 2f;
+            mob_B = true;
         }
-        else if(WaveCount == 6)
+        if (currentWave >= 4 && !mob_C)
         {
-            spawnInterval_A = 1.5f;
-            spawnInterval_B = 2.5f;
-            spawnInterval_C = 4f;
+            timeToSpawn_B = 3f;
+            mob_C = true;
         }
-        else if(WaveCount == 8)
+        if (currentWave >= 6 && !mob_D)
         {
-            spawnInterval_D = 5f;
+            timeToSpawn_A = 1.5f;
+            timeToSpawn_B = 2.5f;
+            timeToSpawn_C = 4f;
+            mob_D = true;
         }
-
+        if (currentWave >= 8)
+        {
+            timeToSpawn_D = 5f;
+        }
     }
 
     void GenerateMonsters()
     {
-        float spawnProbability = Random.value;
-
-        if (spawnProbability <= 0.8f)
+        if (mob_A && timeSinceLastSpawnA >= timeToSpawn_A)
         {
+            timeSinceLastSpawnA = 0f;
             Instantiate(mobPrefabA, transform.position, Quaternion.identity);
         }
-        else if (spawnProbability <= 0.8f + 0.1f) 
+        else if (mob_B && timeSinceLastSpawnB >= timeToSpawn_B)
         {
+            timeSinceLastSpawnB = 0f;
             Instantiate(mobPrefabB, transform.position, Quaternion.identity);
         }
-        else if (spawnProbability <= 0.8f + 0.1f + 0.2f) 
+        else if (mob_C && timeSinceLastSpawnC >= timeToSpawn_C)
         {
+            timeSinceLastSpawnC = 0f;
             Instantiate(mobPrefabC, transform.position, Quaternion.identity);
         }
-        else if (spawnProbability <= 0.8f + 0.1f + 0.2f + 0.2f) 
+        else if (mob_D && timeSinceLastSpawnD >= timeToSpawn_D)
         {
+            timeSinceLastSpawnD = 0f;
             Instantiate(mobPrefabD, transform.position, Quaternion.identity);
-        }
-        else
-        {
-            Instantiate(mobPrefabA, transform.position, Quaternion.identity);
         }
     }
 }
