@@ -939,7 +939,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3354,24 +3354,28 @@ MonoBehaviour:
   - {fileID: 1852379634798707592}
   - {fileID: 2645872784845817524}
   - {fileID: 8079309280286147373}
+  - {fileID: 8304027070445070577}
   textPros:
   - {fileID: 5879301436839455162}
   - {fileID: 6396775364033167688}
   - {fileID: 4755323333046532134}
   - {fileID: 8925396387638482898}
   - {fileID: 6286184811158742022}
+  - {fileID: 1543263299880308076}
   hideTimeTexts:
   - {fileID: 8300296959747267650}
   - {fileID: 3112417428653441887}
   - {fileID: 5789760778883387631}
   - {fileID: 7112835307808504846}
   - {fileID: 4503038526230516329}
+  - {fileID: 6818008430657290192}
   hideButtonImages:
   - {fileID: 6467370680162416297}
   - {fileID: 849559798539507058}
   - {fileID: 8534738500466574127}
   - {fileID: 3047593289656555477}
   - {fileID: 5089710708148494156}
+  - {fileID: 3284508404457461581}
 --- !u!1 &5997166352030222081
 GameObject:
   m_ObjectHideFlags: 0
@@ -4780,7 +4784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GM: {fileID: 7207151963185175820}
-  UW: {fileID: 0}
+  UW: {fileID: 1031963040075024571}
   Mandarin: {fileID: 2962460085493100440, guid: 87e0330628b019c48aba0dade5c6a49b, type: 3}
   Dekopon: {fileID: 6144485648807864769, guid: 7cca78e1d9dca284385f82cc7415f386, type: 3}
   Dolharbang: {fileID: 0}
@@ -4792,6 +4796,7 @@ MonoBehaviour:
   S_A: {fileID: 0}
   DH_A: {fileID: 0}
   SH_A: {fileID: 0}
+  MA_A: {fileID: 0}
   Skill5: {fileID: 5997166352030222081}
   Skill6: {fileID: 3643501312106223940}
   harbang: {fileID: 0}
