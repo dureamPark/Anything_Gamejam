@@ -7,7 +7,7 @@ public class ShuckHB : MonoBehaviour
     public bool isAttacking = false; // 공격 중 여부를 확인하는 변수
     float targetX = -5f; // 목표 x 위치
     float speed = 5f; // 이동 속도
-    int attackcount = 3;
+    int attackcount = 5;
 
     void Start()
     {
@@ -22,7 +22,7 @@ public class ShuckHB : MonoBehaviour
             Debug.Log("슈슉이 작동완료");
             isAttacking = false;
             gameObject.SetActive(false);
-            attackcount = 3;
+            attackcount = 5;
         }
 
         // 공격 중일 때만 이동하도록 처리

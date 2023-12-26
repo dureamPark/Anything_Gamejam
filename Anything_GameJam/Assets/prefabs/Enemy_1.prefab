@@ -104,7 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GM: {fileID: 0}
   AM: {fileID: 0}
-  E_HP: 10
+  E_HP: 15
   E_AD: 3
   E_Speed: 1
   attackCooldown: 3

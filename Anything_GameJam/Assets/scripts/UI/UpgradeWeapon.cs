@@ -50,9 +50,9 @@ public class UpgradeWeapon : MonoBehaviour
     public void Madarin_Updrade()
     {
         Debug.Log("귤 업그레이드");
-        if(GM.Money >= 200)
+        if(GM.Money >= (200 + (Mandarin_Upgrade_count * 50)))
         {
-            GM.Money -= 200;
+            GM.Money -= 200 + (Mandarin_Upgrade_count*50);
             AM.Mandarin_Damage += 1;
             Mandarin_Upgrade_count++;
         }
@@ -60,21 +60,28 @@ public class UpgradeWeapon : MonoBehaviour
     public void dekopon_upgrade()
     {
         Debug.Log("한라봉 업그레이드");
-        if (GM.Money >= 300)
+        if (GM.Money >= (400 + (Dekopon_Upgrade_count * 50)))
         {
-            GM.Money -= 300;
-            AM.Dekopon_Damage += 3;
+            GM.Money -= 400 +(Dekopon_Upgrade_count *50);
+            AM.Dekopon_Damage += 5;
             Dekopon_Upgrade_count++;
         }
     }
     public void dolhareubang_upgrade()
     {
         Debug.Log("돌하르방(특수스킬 해금) 업그레이드");
-        if(Harbang_Upgrade_count <= 2)
+        if(Harbang_Upgrade_count == 2)
         {
             if (GM.Money >= 5000)
             {
                 GM.Money -= 5000;
+                Harbang_Upgrade_count++;
+            }
+        }else if(Harbang_Upgrade_count == 1)
+        {
+            if (GM.Money >= 3000)
+            {
+                GM.Money -= 3000;
                 Harbang_Upgrade_count++;
             }
         }
@@ -82,9 +89,9 @@ public class UpgradeWeapon : MonoBehaviour
     public void sliverfish_upgrade()
     {
         Debug.Log("은갈치 업그레이드");
-        if (GM.Money >= 1000)
+        if (GM.Money >= (1000 + (Silver_Upgrade_count * 500)))
         {
-            GM.Money -= 1000;
+            GM.Money -= 1000 +(Silver_Upgrade_count * 500);
             AM.Silver_cutlassfish_damage += 10;
             Silver_Upgrade_count++;
         }

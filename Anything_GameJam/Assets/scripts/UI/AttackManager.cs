@@ -62,8 +62,8 @@ public class AttackManager : MonoBehaviour
         Skill5.SetActive(false);
         Skill6.SetActive(false);
         Mandarin_Damage = 1;
-        Dekopon_Damage = 10;
-        Silver_cutlassfish_damage = 80;
+        Dekopon_Damage = 15;
+        Silver_cutlassfish_damage = 60;
         Dolhareubang_damage = 20;
         Sibalroma_Damage = 20;
         Moai_Damage = 80;
@@ -188,7 +188,7 @@ public class AttackManager : MonoBehaviour
             Debug.Log("귤");
 
             M_A.Au_Play();
-            Mandarin_Cooltime = 0.3f;
+            Mandarin_Cooltime = 0.5f;
             Mandarin_Active = false;
             GameObject shoot_Mandarin = Instantiate(Mandarin);
             shoot_Mandarin.transform.position = new Vector3(6, -1.8f, 0);
@@ -201,7 +201,7 @@ public class AttackManager : MonoBehaviour
         if (Dekopon_Active)
         {
 
-            GM.Money -= 5;
+            GM.Money -= 10;
             Debug.Log("한라봉");
 
             D_A.Au_Play();
@@ -219,7 +219,7 @@ public class AttackManager : MonoBehaviour
         {
 
             Debug.Log("은갈치");
-            GM.Money -= 50;
+            GM.Money -= 150;
 
             S_A.Au_Play();
             Silver_cutlassfish_CoolTime = 5.0f;
@@ -236,7 +236,6 @@ public class AttackManager : MonoBehaviour
         {
 
             Debug.Log("돌하르방");
-            GM.Money -= 30;
 
             Invoke("Harbang_Audio_play", 6.5f);
             Dolhareubang_CoolTime = 45.0f;
@@ -292,7 +291,7 @@ public class AttackManager : MonoBehaviour
                 moai.SetActive(true);
                 MI.isDown = true;
                 Moai_Active = false;
-                Invoke("Moai_Deactive", 7.0f);
+                Invoke("Moai_Deactive", 5.0f);
             }
         }
     }

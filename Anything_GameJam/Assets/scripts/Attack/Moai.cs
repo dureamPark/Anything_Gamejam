@@ -33,7 +33,7 @@ public class Moai : MonoBehaviour
 
     IEnumerator AscendAfterDelay()
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
         laser.SetActive(false);
         animator.SetBool("isAttack", false);
 

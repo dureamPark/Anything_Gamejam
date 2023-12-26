@@ -11,7 +11,7 @@ public class Mandarin : MonoBehaviour
         transform.Translate(speed * -0.01f, 0, 0);
 
         // 화면 밖으로 나오면 오브젝트를 소멸시킨다
-        if (transform.position.x < -10.0f)
+        if (transform.position.x < -9.0f)
         {
             Destroy(gameObject);
         }

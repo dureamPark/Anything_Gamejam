@@ -108,7 +108,7 @@ MonoBehaviour:
   E_AD: 15
   E_Speed: 4
   attackCooldown: 2
-  Drop_Money: 30
+  Drop_Money: 50
 --- !u!61 &1257402629876874546
 BoxCollider2D:
   m_ObjectHideFlags: 0

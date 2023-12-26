@@ -210,11 +210,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GM: {fileID: 0}
   AM: {fileID: 0}
-  E_HP: 80
+  E_HP: 100
   E_AD: 35
-  E_Speed: 2
+  E_Speed: 3
   attackCooldown: 3
-  Drop_Money: 50
+  Drop_Money: 100
 --- !u!61 &1257402629876874546
 BoxCollider2D:
   m_ObjectHideFlags: 0
