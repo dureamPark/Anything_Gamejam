@@ -5,6 +5,7 @@ public class Enemy_Status : MonoBehaviour
 {
     public GameManager GM;
     public AttackManager AM;
+    private AudioSource AU;
     private WaveManager waveManager;
     private Rigidbody2D rb;
     private Animator animator;
@@ -25,6 +26,7 @@ public class Enemy_Status : MonoBehaviour
 
     private void Start()
     {
+        AU = GetComponent<AudioSource>();
         AM = FindObjectOfType<AttackManager>();
         GM = FindObjectOfType<GameManager>();
         effect = transform.GetChild(0).gameObject;
@@ -94,6 +96,8 @@ public class Enemy_Status : MonoBehaviour
 
     private void ATTACK()
     {
+        GM.Player_HP -= E_AD;
+        AU.Play();
         Debug.Log("Attacking");
     }
 
