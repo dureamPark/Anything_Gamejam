@@ -19,6 +19,6 @@ public class Silver_cutlassfish_CurrentDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        myText.text = "돌하르방 공격력 : " + AM.Silver_cutlassfish_damage.ToString();
+        myText.text = "은갈치 공격력 : " + AM.Silver_cutlassfish_damage.ToString();
     }
 }
