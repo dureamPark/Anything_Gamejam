@@ -11,6 +11,7 @@ TagManager:
   - Dol
   - Enemy
   - moai
+  - shuckHB
   layers:
   - Default
   - TransparentFX
