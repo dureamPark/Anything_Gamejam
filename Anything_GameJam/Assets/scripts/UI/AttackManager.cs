@@ -8,6 +8,11 @@ public class AttackManager : MonoBehaviour
 
     public GameManager GM;
 
+    public GameObject Mandarin;
+    public GameObject Dekopon;
+    public GameObject Dolharbang;
+    public GameObject Silver_culassfish;
+
 
     public int Mandarin_Damage;
     public int Dekopon_Damage;
@@ -106,6 +111,8 @@ public class AttackManager : MonoBehaviour
             Debug.Log("±Ö");
             Mandarin_Cooltime = 0.3f;
             Mandarin_Active = false;
+            GameObject shoot_Mandarin = Instantiate(Mandarin);
+            shoot_Mandarin.transform.position = new Vector3(6, -1.8f, 0);
         }
         //±Ö ³¯¸®±â
     }
@@ -118,6 +125,8 @@ public class AttackManager : MonoBehaviour
             Debug.Log("ÇÑ¶óºÀ");
             Dekopon_CoolTime = 2.0f;
             Dekopon_Active = false;
+            GameObject shoot_Dekopon = Instantiate(Dekopon);
+            shoot_Dekopon.transform.position = new Vector3(6, -1.8f, 0);
         }
         // ÇÑ¶óºÀ ³¯¸®±â
     }
@@ -130,6 +139,8 @@ public class AttackManager : MonoBehaviour
             GM.Money -= 50;
             Silver_cutlassfish_CoolTime = 5.0f;
             Silver_cutlassfish_Active = false;
+            GameObject shoot_Silver = Instantiate(Silver_culassfish);
+            shoot_Silver.transform.position = new Vector3(6, -1.8f, 0);
         }
         // Àº°¥Ä¡ ³¯¸®±â
     }
