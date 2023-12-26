@@ -16,7 +16,7 @@ public class Title : MonoBehaviour
     void TransitionToNextScene()
     {
         
-        SceneManager.LoadScene("attack_test1");
+        SceneManager.LoadScene("attack_test 1");
        
     }
 }
