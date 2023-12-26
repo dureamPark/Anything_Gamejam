@@ -32,7 +32,7 @@ public class AttackManager : MonoBehaviour
 
     void Start()
     {
-        Mandarin_Damage = 10;
+        Mandarin_Damage = 1;
         Dekopon_Damage = 30;
         Silver_cutlassfish_damage = 80;
         Dolhareubang_damage = 20;
