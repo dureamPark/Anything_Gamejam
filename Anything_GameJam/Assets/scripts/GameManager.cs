@@ -8,12 +8,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public int Player_HP;
-    public int Max_Player_HP;
+    public float Player_HP;
+    public float Max_Player_HP;
     public int Wave;
     public int Money;
 
     public Slider HP_Gauge;
+    public Text Money_text;
 
     //public GameObjcet Upgrade_UI;
     //bool Upgrade_UI_Active;
@@ -41,7 +42,9 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
-        if(Player_HP <= 0)
+        
+
+        if (Player_HP <= 0)
         {
             SceneManager.LoadScene("gameover");
         }
@@ -50,5 +53,12 @@ public class GameManager : MonoBehaviour
         {
             //SetActive(true);
         }
+    }
+
+    private void LateUpdate()
+    {
+        HP_Gauge.value = Player_HP / Max_Player_HP;
+        Money_text.text = Money.ToString();
+
     }
 }

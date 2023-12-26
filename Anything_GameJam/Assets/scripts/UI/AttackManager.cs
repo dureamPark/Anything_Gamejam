@@ -101,6 +101,7 @@ public class AttackManager : MonoBehaviour
     {
         if (Mandarin_Active)
         {
+            Debug.Log("귤");
             Mandarin_Cooltime = 0.3f;
             Mandarin_Active = false;
         }
@@ -111,6 +112,7 @@ public class AttackManager : MonoBehaviour
     {
         if (Dekopon_Active)
         {
+            Debug.Log("한라봉");
             Dekopon_CoolTime = 2.0f;
             Dekopon_Active = false;
         }
@@ -121,6 +123,7 @@ public class AttackManager : MonoBehaviour
     {
         if (Silver_cutlassfish_Active)
         {
+            Debug.Log("은갈치");
             Silver_cutlassfish_CoolTime = 5.0f;
             Silver_cutlassfish_Active = false;
         }
@@ -131,6 +134,7 @@ public class AttackManager : MonoBehaviour
     {
         if (Dolhareubang_Active)
         {
+            Debug.Log("돌하르방");
             Dolhareubang_CoolTime = 10.0f;
             Dolhareubang_Active = false;
         }
