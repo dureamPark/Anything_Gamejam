@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaveManager : MonoBehaviour
 {
@@ -45,6 +46,10 @@ public class WaveManager : MonoBehaviour
         if(Waving)
         {
             Wave_time -= Time.deltaTime;
+            if (GM.Player_HP <= 0)
+            {
+                TransitionToSadScene();
+            }
         }
 
         // 웨이브 끝
@@ -74,6 +79,22 @@ public class WaveManager : MonoBehaviour
         GM.Wave++;
         Josuck_Start();
         Invoke("Josuck_End", 3.6f);
+        
+        TransitionToHappyScene();
+    }
+
+    void TransitionToHappyScene()
+    {
+
+        SceneManager.LoadScene("HappyEnding");
+
+    }
+
+    void TransitionToSadScene()
+    {
+
+        SceneManager.LoadScene("SadEnding");
+
     }
 
     public void Josuck_Start()
